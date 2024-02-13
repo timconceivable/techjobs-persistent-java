@@ -1,16 +1,19 @@
 package org.launchcode.techjobs.persistent.models;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Employer extends AbstractEntity {
 
     @NotNull(message = "Location is required")
-    @Size(max = 100, message = "Maximum name size is 100 characters!")
+    @Size(max = 100, message = "Location can only be 100 characters maximum")
     private String location;
 
     public Employer() {
@@ -20,6 +23,10 @@ public class Employer extends AbstractEntity {
         super();
         this.location = aLocation;
     }
+
+    @OneToMany
+    @JoinColumn(name="employer_id")
+    private final List<Job> jobs = new ArrayList<>();
 
     public String getLocation() {
         return location;
