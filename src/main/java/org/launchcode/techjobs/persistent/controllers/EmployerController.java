@@ -35,7 +35,7 @@ public class EmployerController {
     public String processAddEmployerForm(@ModelAttribute @Valid Employer newEmployer, Errors errors, Model model) {
 
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Create Employer");
+            model.addAttribute("title", "Create New Employer");
             model.addAttribute(new Employer());
             return "employers/add";
         }
