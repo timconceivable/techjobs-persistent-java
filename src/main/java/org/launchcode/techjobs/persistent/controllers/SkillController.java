@@ -26,7 +26,7 @@ public class SkillController {
 
     @GetMapping("add")
     public String displayAddSkillForm(Model model) {
-        model.addAttribute(new Skill());
+        model.addAttribute("skill", new Skill());
         return "skills/add";
     }
 
@@ -34,8 +34,8 @@ public class SkillController {
     public String processAddSkillForm(@ModelAttribute @Valid Skill newSkill, Errors errors, Model model) {
 
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Create New Skill");
-            model.addAttribute(new Skill());
+            model.addAttribute("title", "Create Skill");
+            model.addAttribute("skill", new Skill());
             return "skills/add";
         }
 

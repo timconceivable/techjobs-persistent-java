@@ -8,11 +8,6 @@ import jakarta.validation.constraints.Size;
 
 @Entity
 public class Employer extends AbstractEntity {
-    @Id
-    @GeneratedValue
-    private int id;
-
-    private String name;
 
     @NotNull(message = "Location is required")
     @Size(max = 100, message = "Maximum name size is 100 characters!")
