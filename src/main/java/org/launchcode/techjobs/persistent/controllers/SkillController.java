@@ -34,7 +34,7 @@ public class SkillController {
     public String processAddSkillForm(@ModelAttribute @Valid Skill newSkill, Errors errors, Model model) {
 
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Create Skill");
+            model.addAttribute("title", "Add Skill");
             model.addAttribute("skill", new Skill());
             return "skills/add";
         }
