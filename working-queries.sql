@@ -4,6 +4,10 @@
 -- DELETE FROM job WHERE name="New Job";
 -- SET FOREIGN_KEY_CHECKS = 1;
 -- SET sql_safe_updates = 1;
-SELECT * FROM job;
+-- SELECT * FROM job;
 -- SELECT * FROM employer;
 -- SELECT * FROM skill;
+SELECT * FROM job_skills;
+-- SELECT DISTINCT skills FROM job
+-- WHERE skill.id = job.skills
+-- ORDER BY skill.name;
