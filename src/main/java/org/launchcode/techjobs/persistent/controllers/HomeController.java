@@ -78,7 +78,7 @@ public class HomeController {
     public String displayViewJob(Model model, @PathVariable Integer jobId) {
         if (jobId == null) {
             model.addAttribute("title", "All Jobs");
-            model.addAttribute("jobs", jobRepository.findAll());
+//            model.addAttribute("job", jobRepository.findAll());
         } else {
             model.addAttribute("jobs",jobRepository.findById(jobId));
         }
