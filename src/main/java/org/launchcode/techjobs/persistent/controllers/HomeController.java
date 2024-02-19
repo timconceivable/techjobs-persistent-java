@@ -12,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -80,10 +82,12 @@ public class HomeController {
         Optional<Job> optJob = jobRepository.findById(jobId);
         if (optJob.isPresent()) {
             Job job = optJob.get();
+            model.addAttribute("title", "Job: " + job.getName());
             model.addAttribute("job", job);
-            return "view";
         } else {
-            return "redirect:../";
+            model.addAttribute("title", "Invalid Job ID: " + jobId);
         }
+
+        return "view";
     }
 }
